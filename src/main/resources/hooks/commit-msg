@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Automatically adds branch name to every commit message.
+#
+NAME=$(git branch | grep '*' | sed 's/* //') 
+if [ "$NAME" == "" ] 
+then 
+   NAME="master"
+fi
+echo '['"$NAME"']: '$(cat "$1") > "$1"
