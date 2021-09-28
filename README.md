@@ -2,6 +2,16 @@
 
 Installer for sgit (https://github.com/emanuelcruzrodrigues/sgit). 
 
+## How to Install
+
+just run: 
+
+>java -jar sgit-installer.jar
+
+Enter the super user password when prompted
+
+![linux](./linux.png)
+
 After installation, all sgit commands will be disponible typing "sgit &lt;git command>"
 
 ## Instalação manual no Linux
@@ -12,6 +22,7 @@ After installation, all sgit commands will be disponible typing "sgit &lt;git co
 1. Extraia os arquivos sgit e sgit.jar e coloque-os na pasta /bin
 1. Em um terminal, execute:
 
+>
 > git config ~-~-global init.templatedir '<diretório home do seu usuário>/.sgit'
 > 
 > chmod +x <diretório home do seu usuário>/.sgit/hooks/commit-msg
@@ -32,11 +43,13 @@ A partir deste ponto do tutorial, vou me referir a esta pasta como "diretório d
 6. Extraia o arquivos sgit e sgit.jar na raiz do diretório do sgit
 7. Edite o arquivo sgit com algum editor de texto da seguinte forma:
 
+>
 >#!/bin/sh
 >java -jar <diretório do sgit formatado como um diretorio linux>/sgit.jar "$@"
 
 Exemplo:
 
+>
 >#!/bin/sh
 >
 >java -jar /C/Users/emanuel/bin/sgit.jar "$@"
@@ -47,11 +60,14 @@ Exemplo:
 
 9. No Git Bash, execute:
 
+>
 >git config ~-~-global init.templatedir '<diretório do sgit formatado como um diretorio linux>/template'
+>
 
 exemplo:
 
+>
 >git config ~-~-global init.templatedir '/C/Users/emanuel/bin/template'
-
+>
 
 
