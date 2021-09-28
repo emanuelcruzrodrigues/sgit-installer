@@ -2,9 +2,18 @@
 #
 # Automatically adds branch name to every commit message.
 #
-NAME=$(git branch | grep '*' | sed 's/* //') 
-if [ "$NAME" == "" ] 
-then 
-   NAME="master"
+
+MSG=`head -n1 "$1"`
+#echo "Original message: '$MSG'"
+
+if [[ $MSG = \[* ]] 
+then
+	echo 'Commit message already has the branch name'
+else
+	NAME=$(git branch | grep '*' | sed 's/* //') 
+	if [ "$NAME" == "" ] 
+	then 
+   		NAME="master"
+	fi
+	echo '['"$NAME"']: '$(cat "$1") > "$1"
 fi
-echo '['"$NAME"']: '$(cat "$1") > "$1"
